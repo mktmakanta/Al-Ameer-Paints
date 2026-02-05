@@ -1,7 +1,4 @@
 import { ExternalLink, Phone, Mail } from "lucide-react";
-import TopBar from "@/components/layout/TopBar";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/ui/ContactForm";
 import { SITE, CONTACT } from "@/lib/siteData";
 
@@ -79,13 +76,13 @@ export default function ContactSection() {
             </div>
           </div>
         </div>
-
-        {/* Full-width Map */}
         <div className="w-full" style={{ height: "420px" }}>
-          <img
-            src={CONTACT.mapImage}
-            alt="Location map"
-            className="w-full h-full object-cover"
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.3266512019836!2d6.53016707502662!3d9.653105190435303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104c71bb9bfaf567%3A0xc5dde1140f987dbf!2sAL-AMEER%20PAINTS%20%26%20CHEMICAL%20NIG.%20LTD!5e0!3m2!1sen!2sng!4v1770166436422!5m2!1sen!2sng"
+            className="w-full h-full border-0"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
       </main>

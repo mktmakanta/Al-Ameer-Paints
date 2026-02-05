@@ -1,18 +1,26 @@
-import { Phone, Mail, MapPin } from "lucide-react";
-import { SITE, FOOTER_QUICK_LINKS, FOOTER_COMPANY } from "@/lib/siteData";
 import Link from "next/link";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { SITE, FOOTER_QUICK_LINKS, FOOTER_COMPANY } from "@/lib/siteData";
 
 function SocialIcons() {
+  const socials = [
+    { icon: FaFacebookF, label: "Facebook", href: "#" },
+    { icon: FaInstagram, label: "Instagram", href: "#" },
+    { icon: FaTiktok, label: "TikTok", href: "#" },
+    { icon: FaWhatsapp, label: "WhatsApp", href: "#" },
+  ];
+
   return (
-    <div className="flex gap-2 mt-4">
-      {[0, 1, 2, 3].map((i) => (
+    <div className="flex gap-4 mt-4">
+      {socials.map(({ icon: Icon, label, href }) => (
         <a
-          key={i}
-          href="#"
-          aria-label="Social link"
-          className="w-8 h-8 bg-white rounded flex items-center justify-center"
+          key={label}
+          href={href}
+          aria-label={label}
+          className="text-white opacity-80 hover:opacity-100 transition-opacity"
         >
-          {/* Replace each with actual icon or <img /> */}
+          <Icon size={18} />
         </a>
       ))}
     </div>
@@ -23,21 +31,19 @@ export default function Footer() {
   return (
     <footer className="bg-green-700 text-white">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Column 1 — Logo + Description + Socials */}
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-24">
+          {/* Column 1 — Brand */}
+          <div>
             <div className="flex flex-col items-start">
-              <div className="w-16 h-16  flex items-center justify-center">
-                <img
-                  src="/images/logo-footer.png"
-                  alt="Al Ameer"
-                  className="h-16 w-auto"
-                />
-              </div>
+              <img
+                src="/images/logo-footer.png"
+                alt="Al Ameer"
+                className="h-16 w-auto"
+              />
               <span className="text-base font-bold mt-1 tracking-tight">
                 AL-AMEER
               </span>
-              <span className="text-xs opacity-80" style={{ fontSize: "9px" }}>
+              <span className="text-[9px] opacity-80">
                 PAINTS &amp; CHEMICAL NIG. LTD
               </span>
             </div>
@@ -105,8 +111,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider + Copyright */}
-        <div className="border-t border-white border-opacity-30 mt-10 pt-6 text-center">
+        {/* Bottom */}
+        <div className="border-t border-white/30 mt-10 pt-6 text-center">
           <p className="text-sm opacity-70">{SITE.copyright}</p>
         </div>
       </div>
