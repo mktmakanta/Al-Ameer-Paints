@@ -1,18 +1,25 @@
 import { ExternalLink, Phone, Mail } from "lucide-react";
 import ContactForm from "@/components/ui/ContactForm";
 import { SITE, CONTACT } from "@/lib/siteData";
+import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 function ContactSocialIcons() {
+  const socials = [
+    { icon: FaFacebookF, label: "Facebook", href: "#" },
+    { icon: FaInstagram, label: "Instagram", href: "#" },
+    { icon: FaTiktok, label: "TikTok", href: "#" },
+    { icon: FaWhatsapp, label: "WhatsApp", href: "#" },
+  ];
   return (
-    <div className="flex gap-2 mt-6">
-      {[0, 1, 2, 3].map((i) => (
+    <div className="flex gap-4 mt-6">
+      {socials.map(({ icon: Icon, label, href }) => (
         <a
-          key={i}
-          href="#"
-          aria-label="Social link"
-          className="w-9 h-9 bg-gray-200 rounded flex items-center justify-center hover:bg-gray-300 transition-colors"
+          key={label}
+          href={href}
+          aria-label={label}
+          className="text-green-700 hover:opacity-100 transition-opacity"
         >
-          {/* Replace each with actual social icon */}
+          <Icon size={20} />
         </a>
       ))}
     </div>
