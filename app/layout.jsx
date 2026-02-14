@@ -4,24 +4,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import TopBar from "@/components/layout/TopBar";
 import { Toaster } from "react-hot-toast";
+import { metadata } from "@/lib/metadata";
+import { generateBusinessJsonLd } from "@/lib/jsonLd";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = {
-  title: "Al Ameer Paints & Chemical Nig. Ltd",
-  description:
-    "Premium paints and industrial chemicals engineered for durability, beauty, and long-lasting protection.",
-};
+export { metadata };
 
 export default function RootLayout({ children }) {
+  const businessJsonLd = generateBusinessJsonLd(metadata.business);
   return (
     <html lang="en">
       <head>
@@ -45,6 +34,12 @@ export default function RootLayout({ children }) {
           rel="apple-touch-icon"
           sizes="180x180"
           href="/apple-touch-icon.png"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateBusinessJsonLd(metadata.business)),
+          }}
         />
       </head>
       <body className="font-sans" style={{ fontFamily: "'Inter', sans-serif" }}>
