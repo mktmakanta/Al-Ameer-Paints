@@ -5,7 +5,7 @@ export default function TopBar() {
   return (
     <div className="bg-green-700 text-white">
       <div className="max-w-7xl mx-auto px-4 py-2">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="flex  sm:flex-row items-start sm:items-center justify-between gap-3">
           {/* Social Icons */}
           <div className="flex items-center gap-3 text-white">
             <a href="#" aria-label="Facebook" className="hover:opacity-75">
