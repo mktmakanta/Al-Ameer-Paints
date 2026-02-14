@@ -1,6 +1,3 @@
-import TopBar from "@/components/layout/TopBar";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import HeroSlideshow from "@/components/sections/HeroSlideshow";
 import AboutSection from "@/components/sections/AboutSection";
 import WhyBetterSection from "@/components/sections/WhyBetterSection";
@@ -8,7 +5,6 @@ import ProductsSection from "@/components/sections/ProductsSection";
 import ColorCollectionSection from "@/components/sections/ColorCollectionSection";
 import ColoringWorldSection from "@/components/sections/ColoringWorldSection";
 import CoatingsPerformSection from "@/components/sections/CoatingsPerformSection";
-import ContactPage from "./contact/page";
 import ContactSection from "@/components/sections/ContactSection";
 import PanoramaSection from "@/components/sections/PanoramaSection";
 
@@ -20,7 +16,7 @@ export default function HomePage() {
         <AboutSection />
         <WhyBetterSection />
         <ProductsSection />
-        <PanoramaSection/>
+        <PanoramaSection />
         <ColorCollectionSection />
         <ColoringWorldSection />
         <CoatingsPerformSection />

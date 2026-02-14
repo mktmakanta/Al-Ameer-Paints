@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -10,15 +12,42 @@ export default function ContactForm() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Wire up to your backend / email service
-    alert("Thank you! Your message has been sent.");
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setLoading(true);
+
+    const toastId = toast.loading("Sending message...");
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      );
+
+      toast.success("Message sent successfully!", { id: toastId });
+
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again.", {
+        id: toastId,
+      });
+    }
+
+    setLoading(false);
   };
 
   const inputClass =
@@ -30,7 +59,7 @@ export default function ContactForm() {
         Send us a direct message:
       </h3>
 
-      <div onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label className="block text-gray-800 font-medium text-sm mb-1">
           Name
         </label>
@@ -40,6 +69,7 @@ export default function ContactForm() {
           value={form.name}
           onChange={handleChange}
           className={inputClass}
+          required
         />
 
         <label className="block text-gray-800 font-medium text-sm mb-1 mt-4">
@@ -51,6 +81,7 @@ export default function ContactForm() {
           value={form.email}
           onChange={handleChange}
           className={inputClass}
+          required
         />
 
         <label className="block text-gray-800 font-medium text-sm mb-1 mt-4">
@@ -73,15 +104,17 @@ export default function ContactForm() {
           onChange={handleChange}
           rows={5}
           className={inputClass + " resize-none"}
+          required
         />
 
         <button
-          onClick={handleSubmit}
-          className="btn-green mt-6 px-8 py-2.5 rounded text-sm font-semibold"
+          type="submit"
+          disabled={loading}
+          className="btn-green mt-6 px-8 py-2.5 rounded text-sm font-semibold disabled:opacity-50"
         >
-          Submit
+          {loading ? "Sending..." : "Submit"}
         </button>
-      </div>
+      </form>
     </div>
   );
 }

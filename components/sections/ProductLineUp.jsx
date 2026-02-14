@@ -1,5 +1,5 @@
 export default function ProductLineup() {
-  const sizes = ["1L", "4L", "10L", "20L"];
+  const sizes = ["1L", "4L", "18L", "20L"];
 
   return (
     <section className="py-16 px-4 bg-white">
