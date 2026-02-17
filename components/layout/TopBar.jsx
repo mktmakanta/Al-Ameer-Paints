@@ -1,5 +1,12 @@
 import { SITE } from "@/lib/siteData";
-import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function TopBar() {
   return (
@@ -8,18 +15,42 @@ export default function TopBar() {
         <div className="flex  sm:flex-row items-start sm:items-center justify-between gap-3">
           {/* Social Icons */}
           <div className="flex items-center gap-3 text-white">
-            <a href="#" aria-label="Facebook" className="hover:opacity-75">
+            <Link
+              href="
+              https://www.facebook.com/profile.php?id=61587759537169"
+              aria-label="Facebook"
+              className="hover:opacity-75"
+            >
               <FaFacebookF size={16} />
-            </a>
-            <a href="#" aria-label="Instagram" className="hover:opacity-75">
+            </Link>
+            <Link
+              href="https://www.instagram.com/al_ameer_paints?igsh=MXVoMm9tc3puenB4cA=="
+              aria-label="Instagram"
+              className="hover:opacity-75"
+            >
               <FaInstagram size={16} />
-            </a>
-            <a href="#" aria-label="TikTok" className="hover:opacity-75">
+            </Link>
+            <Link
+              href="https://vm.tiktok.com/ZS9JvMd9pp2Hv-fG4In/"
+              aria-label="TikTok"
+              className="hover:opacity-75"
+            >
               <FaTiktok size={16} />
-            </a>
-            <a href="#" aria-label="WhatsApp" className="hover:opacity-75">
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/al-ameer-etv-09aa19296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              aria-label="linkedin"
+              className="hover:opacity-75"
+            >
+              <FaLinkedin size={16} />
+            </Link>
+            <Link
+              href=" +2348141214979"
+              aria-label="WhatsApp"
+              className="hover:opacity-75"
+            >
               <FaWhatsapp size={16} />
-            </a>
+            </Link>
           </div>
 
           {/* Contact */}

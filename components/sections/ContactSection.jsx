@@ -1,26 +1,50 @@
 import { ExternalLink, Phone, Mail } from "lucide-react";
 import ContactForm from "@/components/ui/ContactForm";
 import { SITE, CONTACT } from "@/lib/siteData";
-import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+  FaWhatsapp,
+} from "react-icons/fa";
+import Link from "next/link";
 
 function ContactSocialIcons() {
   const socials = [
-    { icon: FaFacebookF, label: "Facebook", href: "#" },
-    { icon: FaInstagram, label: "Instagram", href: "#" },
-    { icon: FaTiktok, label: "TikTok", href: "#" },
-    { icon: FaWhatsapp, label: "WhatsApp", href: "#" },
+    {
+      icon: FaFacebookF,
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61587759537169",
+    },
+    {
+      icon: FaInstagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/al_ameer_paints?igsh=MXVoMm9tc3puenB4cA==",
+    },
+    {
+      icon: FaTiktok,
+      label: "TikTok",
+      href: "https://vm.tiktok.com/ZS9JvMd9pp2Hv-fG4In/",
+    },
+    {
+      icon: FaLinkedin,
+      label: "LinkenIn",
+      href: "https://www.linkedin.com/in/al-ameer-etv-09aa19296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    },
+    { icon: FaWhatsapp, label: "WhatsApp", href: " +2348141214979" },
   ];
   return (
     <div className="flex gap-4 mt-6">
       {socials.map(({ icon: Icon, label, href }) => (
-        <a
+        <Link
           key={label}
           href={href}
           aria-label={label}
           className="text-green-700 hover:opacity-100 transition-opacity"
         >
           <Icon size={20} />
-        </a>
+        </Link>
       ))}
     </div>
   );
