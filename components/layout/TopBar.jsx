@@ -45,7 +45,7 @@ export default function TopBar() {
               <FaLinkedin size={16} />
             </Link>
             <Link
-              href=" +2348141214979"
+              href="https://wa.me/2348141214979"
               aria-label="WhatsApp"
               className="hover:opacity-75"
             >

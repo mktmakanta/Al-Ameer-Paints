@@ -32,7 +32,11 @@ function ContactSocialIcons() {
       label: "LinkenIn",
       href: "https://www.linkedin.com/in/al-ameer-etv-09aa19296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
-    { icon: FaWhatsapp, label: "WhatsApp", href: " +2348141214979" },
+    {
+      icon: FaWhatsapp,
+      label: "WhatsApp",
+      href: "https://wa.me/2348141214979",
+    },
   ];
   return (
     <div className="flex gap-4 mt-6">
